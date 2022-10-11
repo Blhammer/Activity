@@ -1,10 +1,10 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./app/layout/App";
-import "./app/layout/styles.css";
-import reportWebVitals from "./reportWebVitals";
 import { store, StoreContext } from "./app/stores/store";
 import { BrowserRouter } from "react-router-dom";
+import App from "./app/layout/App";
+import "react-calendar/dist/Calendar.css";
+import "./app/layout/styles.css";
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
