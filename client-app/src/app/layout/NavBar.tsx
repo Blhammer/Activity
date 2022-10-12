@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <Menu inverted fixed="top">
             <Container>
-                <Menu.Item as={NavLink} to="/" exact header>
+                <Menu.Item as={NavLink} exact to="/" header>
                     <img
                         src="/assets/logo.png"
                         alt="logo"
@@ -15,6 +15,7 @@ const Navbar = () => {
                     Activities
                 </Menu.Item>
                 <Menu.Item as={NavLink} to="/activities" name="Activities" />
+                <Menu.Item as={NavLink} to="/errors" name="Errors" />
                 <Menu.Item>
                     <Button
                         as={NavLink}
