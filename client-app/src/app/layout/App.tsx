@@ -5,14 +5,15 @@ import { observer } from "mobx-react-lite";
 import { ToastContainer } from "react-toastify";
 
 // Import custom components
+
 import HomePage from "../../features/home/HomePage";
+import Navbar from "./NavBar";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import ActivityDetails from "../../features/activities/details/ActivityDetails";
 import ActivityForm from "../../features/activities/form/ActivityForm";
-import Navbar from "./NavBar";
 import TestErrors from "../../features/errors/TestError";
-import NotFound from "../../features/errors/NotFound";
 import ServerError from "../../features/errors/ServerError";
+import NotFound from "../../features/errors/NotFound";
 
 function App() {
     const location = useLocation();

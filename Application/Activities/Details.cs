@@ -8,7 +8,6 @@ namespace Application.Activities
 {
     public class Details
     {
-
         public class Query : IRequest<Result<Activity>>
         {
             public Guid Id { get; set; }

@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { ServerError } from "../models/serverError";
 
-export default class CommonStore {
+class CommonStore {
     error: ServerError | null = null;
 
     constructor() {
@@ -12,3 +12,5 @@ export default class CommonStore {
         this.error = error;
     };
 }
+
+export default CommonStore;

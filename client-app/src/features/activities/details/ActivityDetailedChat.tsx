@@ -5,7 +5,7 @@ interface Props {
     activityId: string;
 }
 
-export default observer(function ActivityDetailedChat({ activityId }: Props) {
+const ActivityDetailedChat = ({ activityId }: Props) => {
     return (
         <>
             <Segment
@@ -64,4 +64,6 @@ export default observer(function ActivityDetailedChat({ activityId }: Props) {
             </Segment>
         </>
     );
-});
+};
+
+export default observer(ActivityDetailedChat);

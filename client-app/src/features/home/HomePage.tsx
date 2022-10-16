@@ -1,4 +1,3 @@
-import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom";
 import { Container, Header, Segment, Image, Button } from "semantic-ui-react";
 
@@ -24,4 +23,4 @@ const HomePage = () => {
     );
 };
 
-export default observer(HomePage);
+export default HomePage;

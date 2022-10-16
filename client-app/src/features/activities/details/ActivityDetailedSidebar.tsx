@@ -2,7 +2,7 @@ import { Segment, List, Label, Item, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 
-export default observer(function ActivityDetailedSidebar() {
+const ActivityDetailedSidebar = () => {
     return (
         <>
             <Segment
@@ -60,4 +60,6 @@ export default observer(function ActivityDetailedSidebar() {
             </Segment>
         </>
     );
-});
+};
+
+export default observer(ActivityDetailedSidebar);

@@ -19,7 +19,7 @@ interface Props {
     activity: Activity;
 }
 
-export default observer(function ActivityDetailedHeader({ activity }: Props) {
+const ActivityDetailedHeader = ({ activity }: Props) => {
     return (
         <Segment.Group>
             <Segment basic attached="top" style={{ padding: "0" }}>
@@ -55,4 +55,6 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
             </Segment>
         </Segment.Group>
     );
-});
+};
+
+export default observer(ActivityDetailedHeader);

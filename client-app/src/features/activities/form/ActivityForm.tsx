@@ -8,6 +8,7 @@ import { v4 as uuid } from "uuid";
 
 const ActivityForm = () => {
     const history = useHistory();
+
     const { activityStore } = useStore();
     const {
         createActivity,

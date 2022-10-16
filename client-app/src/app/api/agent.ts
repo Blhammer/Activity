@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
-import { Activity } from "../models/activity";
 import { history } from "../..";
+import { Activity } from "../models/activity";
 import { store } from "../stores/store";
 
 const sleep = (delay: number) => {
@@ -26,10 +26,6 @@ axios.interceptors.response.use(
 
         switch (status) {
             case 400:
-                if (typeof data === "string") {
-                    toast.error(data);
-                }
-
                 if (
                     config.method === "get" &&
                     data.errors.hasOwnProperty("id")
@@ -48,6 +44,7 @@ axios.interceptors.response.use(
                 } else {
                     toast.error(data);
                 }
+
                 break;
             case 401:
                 history.push("/not-found");
@@ -79,11 +76,10 @@ const requests = {
 const Activities = {
     list: () => requests.get<Activity[]>("/activities"),
     details: (id: string) => requests.get<Activity>(`/activities/${id}`),
-    create: (activity: Activity) =>
-        requests.post<void>("/activities", activity),
+    create: (activity: Activity) => axios.post<void>("/activities", activity),
     update: (activity: Activity) =>
-        requests.put<void>(`/activities/${activity.id}`, activity),
-    delete: (id: string) => requests.del<void>(`activities/${id}`),
+        axios.put<void>(`/activities/${activity.id}`, activity),
+    delete: (id: string) => axios.delete<void>(`activities/${id}`),
 };
 
 const agent = {
