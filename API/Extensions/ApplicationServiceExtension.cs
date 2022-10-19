@@ -17,10 +17,10 @@ namespace API.Extensions
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
             });
-            services.AddDbContext<DataContext>(opt =>
-            {
-                opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
-            });
+
+            var connectionString = config.GetConnectionString("DefaultConnection");
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
+
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
