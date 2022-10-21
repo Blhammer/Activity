@@ -2,6 +2,7 @@
 using Application.Core;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.OpenApi.Models;
 using Persistence;
 
@@ -18,8 +19,11 @@ namespace API.Extensions
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
             });
 
-            var connectionString = config.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
+            string connectionString = config.GetConnectionString("DefaultConnection");
+            services.AddDbContext<DataContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
 
             services.AddCors(opt =>
             {

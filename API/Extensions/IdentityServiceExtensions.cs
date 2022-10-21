@@ -1,10 +1,10 @@
-﻿using System.Text;
-using API.Services;
+﻿using API.Services;
 using Domain;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
+using System.Text;
 
 namespace API.Extensions
 {
@@ -16,7 +16,8 @@ namespace API.Extensions
             services.AddIdentityCore<AppUser>(opt =>
                 {
                     opt.Password.RequireNonAlphanumeric = false;
-                }).AddEntityFrameworkStores<DataContext>()
+                })
+                .AddEntityFrameworkStores<DataContext>()
                 .AddSignInManager<SignInManager<AppUser>>();
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));

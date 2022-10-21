@@ -1,8 +1,9 @@
-import { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import { observer } from "mobx-react-lite";
 import { ToastContainer } from "react-toastify";
+import { useStore } from "../stores/store";
 
 // Import custom components
 
@@ -14,13 +15,29 @@ import ActivityForm from "../../features/activities/form/ActivityForm";
 import TestErrors from "../../features/errors/TestError";
 import ServerError from "../../features/errors/ServerError";
 import NotFound from "../../features/errors/NotFound";
+import LoginForm from "../../features/users/LoginForm";
+import LoadingComponent from "./LoadingComponent";
+import ModalContainer from "../common/modals/ModalContainer";
 
 function App() {
     const location = useLocation();
+    const { commonStore, userStore } = useStore();
+
+    useEffect(() => {
+        if (commonStore.token) {
+            userStore.getUser().finally(() => commonStore.setAppLoaded());
+        } else {
+            commonStore.setAppLoaded();
+        }
+    }, [commonStore, userStore]);
+
+    if (!commonStore.appLoaded)
+        return <LoadingComponent content="Loading app..." />;
 
     return (
         <Fragment>
             <ToastContainer position="bottom-right" hideProgressBar />
+            <ModalContainer />
             <Route exact path="/" component={HomePage} />
             <Route
                 path={"/(.+)"}
@@ -48,6 +65,7 @@ function App() {
                                     path="/server-error"
                                     component={ServerError}
                                 />
+                                <Route path="/login" component={LoginForm} />
                                 <Route component={NotFound} />
                             </Switch>
                         </Container>
