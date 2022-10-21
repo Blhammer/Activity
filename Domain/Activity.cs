@@ -10,23 +10,25 @@ namespace Domain
 
         [Required]
         [StringLength(50)]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Required]
         public DateTime Date { get; set; }
 
         [Required]
-        [StringLength(300)]
-        public string Description { get; set; }
+        [StringLength(200)]
+        public string Description { get; set; } = null!;
 
         [Required]
-        public string Category { get; set; }
+        public string Category { get; set; } = null!;
 
         [Required]
         [StringLength(30)]
-        public string City { get; set; }
+        public string City { get; set; } = null!;
 
         [Required]
-        public string Venue { get; set; }
-    }
+        public string Venue { get; set; } = null!;
+
+        public ICollection<ActivityAttendee> Attendees { get; set; }
+     }
 }

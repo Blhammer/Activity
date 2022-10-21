@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
     public class AppUser : IdentityUser
     {
-        public string DisplayName { get; set; }
-        public string Bio { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string DisplayName { get; set; } = null!;
+
+        [Required]
+        [StringLength(50)]
+        public string Bio { get; set; } = null!;
+
+        public ICollection<ActivityAttendee> Activities { get; set; }
     }
 }
