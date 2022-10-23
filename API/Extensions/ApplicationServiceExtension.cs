@@ -1,10 +1,10 @@
 ﻿using Application.Activities;
 using Application.Core;
 using Application.Interfaces;
+using Infrastructure.Photos;
 using Infrastructure.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.OpenApi.Models;
 using Persistence;
 
@@ -21,10 +21,9 @@ namespace API.Extensions
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
             });
 
-            string connectionString = config.GetConnectionString("DefaultConnection");
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
 
             services.AddCors(opt =>
@@ -38,6 +37,8 @@ namespace API.Extensions
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             services.AddScoped<IUserAccessor, UserAccessor>();
+            services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+            services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
 
             return services;
         }

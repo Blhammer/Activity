@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
+    // Relationship One to Many
     public class AppUser : IdentityUser // Entity
     {
         public string DisplayName { get; set; } = null!;
@@ -10,5 +10,7 @@ namespace Domain
         public string Bio { get; set; } = null!;
 
         public ICollection<ActivityAttendee> Activities { get; set; }
+
+        public ICollection<Photo> Photos { get; set; }
     }
 }
