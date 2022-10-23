@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
-    public class AppUser : IdentityUser
+    public class AppUser : IdentityUser // Entity
     {
         public string DisplayName { get; set; } = null!;
 
