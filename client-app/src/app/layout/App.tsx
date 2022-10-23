@@ -18,6 +18,7 @@ import NotFound from "../../features/errors/NotFound";
 import LoginForm from "../../features/users/LoginForm";
 import LoadingComponent from "./LoadingComponent";
 import ModalContainer from "../common/modals/ModalContainer";
+import ProfilePage from "../../features/profiles/ProfilePage";
 
 function App() {
     const location = useLocation();
@@ -59,6 +60,10 @@ function App() {
                                     key={location.key}
                                     path={["/createActivity", "/manage/:id"]}
                                     component={ActivityForm}
+                                />
+                                <Route
+                                    path="/profiles/:username"
+                                    component={ProfilePage}
                                 />
                                 <Route path="/errors" component={TestErrors} />
                                 <Route

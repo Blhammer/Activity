@@ -26,7 +26,7 @@ const ActivityListItem = ({ activity }: Props) => {
                             style={{ marginBottom: 5 }}
                             size="tiny"
                             circular
-                            src="/assets/user.png"
+                            src={activity.host?.image || "/assets/user.png"}
                         />
                         <Item.Content>
                             <Item.Header
