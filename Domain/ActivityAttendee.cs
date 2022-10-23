@@ -9,19 +9,14 @@ namespace Domain
 {
     public class ActivityAttendee
     {
-        [Key]
         public Guid ActivityId { get; set; }
 
-        [Required]
-        public string AppUserId { get; set; } = null!;
+        public string AppUserId { get; set; }
 
-        [Required]
-        public AppUser AppUser { get; set; } = null!;
+        public AppUser AppUser { get; set; }
 
-        [Required]
-        public Activity Activity { get; set; } = null!;
+        public Activity Activity { get; set; }
 
-        [Required]
         public bool IsHost { get; set; }
     }
 }
