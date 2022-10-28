@@ -54,7 +54,7 @@ const ActivityDetailedChat = ({ activityId }: Props) => {
                                             placeholder="Enter your comment (Enter to submit, SHIFT + enter for new line)"
                                             rows={2}
                                             {...props.field}
-                                            onKeyPress={(e) => {
+                                            onKeyDown={(e) => {
                                                 if (
                                                     e.key === "Enter" &&
                                                     e.shiftKey

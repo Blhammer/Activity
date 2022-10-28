@@ -43,8 +43,10 @@ export default class ProfileStore {
 
     loadProfile = async (username: string) => {
         this.loadingProfile = true;
+
         try {
             const profile = await agent.Profiles.get(username);
+
             runInAction(() => {
                 this.profile = profile;
                 this.loadingProfile = false;
@@ -57,9 +59,12 @@ export default class ProfileStore {
 
     uploadPhoto = async (file: Blob) => {
         this.uploading = true;
+
         try {
             const response = await agent.Profiles.uploadPhoto(file);
+
             const photo = response.data;
+
             runInAction(() => {
                 if (this.profile) {
                     this.profile.photos?.push(photo);
@@ -78,9 +83,12 @@ export default class ProfileStore {
 
     setMainPhoto = async (photo: Photo) => {
         this.loading = true;
+
         try {
             await agent.Profiles.setMainPhoto(photo.id);
+
             store.userStore.setImage(photo.url);
+
             runInAction(() => {
                 if (this.profile && this.profile.photos) {
                     this.profile.photos.find((p) => p.isMain)!.isMain = false;
@@ -98,8 +106,10 @@ export default class ProfileStore {
 
     deletePhoto = async (photo: Photo) => {
         this.loading = true;
+
         try {
             await agent.Profiles.deletePhoto(photo.id);
+
             runInAction(() => {
                 if (this.profile) {
                     this.profile.photos = this.profile.photos?.filter(
@@ -139,9 +149,12 @@ export default class ProfileStore {
 
     updateFollowing = async (username: string, following: boolean) => {
         this.loading = true;
+
         try {
             await agent.Profiles.updateFollowing(username);
+
             store.activityStore.updateAttendeeFollowing(username);
+
             runInAction(() => {
                 if (
                     this.profile &&
@@ -153,6 +166,7 @@ export default class ProfileStore {
                         : this.profile.followersCount--;
                     this.profile.following = !this.profile.following;
                 }
+
                 if (
                     this.profile &&
                     this.profile.username === store.userStore.user?.username
@@ -161,6 +175,7 @@ export default class ProfileStore {
                         ? this.profile.followingCount++
                         : this.profile.followingCount--;
                 }
+
                 this.followings.forEach((profile) => {
                     if (profile.username === username) {
                         profile.following
@@ -169,6 +184,7 @@ export default class ProfileStore {
                         profile.following = !profile.following;
                     }
                 });
+
                 this.loading = false;
             });
         } catch (error) {
