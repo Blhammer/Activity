@@ -4,6 +4,7 @@ import { Tab } from "semantic-ui-react";
 import { Profile } from "../../app/models/profile";
 import { useStore } from "../../app/stores/store";
 import ProfileAbout from "./ProfileAbout";
+import ProfileActivities from "./ProfileActivities";
 import ProfileFollowings from "./ProfileFollowings";
 import ProfilePhotos from "./ProfilePhotos";
 
@@ -22,7 +23,7 @@ const ProfileContent = ({ profile }: Props) => {
         },
         {
             menuItem: "Events",
-            render: () => <Tab.Pane>Events Content</Tab.Pane>,
+            render: () => <ProfileActivities />,
         },
         {
             menuItem: "Followers",
