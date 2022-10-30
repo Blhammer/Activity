@@ -4,7 +4,8 @@ import axios from "axios";
 import ValidationErrors from "./ValidationErrors";
 
 const TestErrors = () => {
-    const baseUrl = "http://localhost:5000/api/";
+    const baseUrl = process.env.REACT_APP_API_URL;
+
     const [errors, setErrors] = useState(null);
 
     function handleNotFound() {

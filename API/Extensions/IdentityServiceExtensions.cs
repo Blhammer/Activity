@@ -16,10 +16,9 @@ namespace API.Extensions
             IConfiguration config)
         {
             services.AddIdentityCore<AppUser>(opt =>
-                {
-                    opt.Password.RequireNonAlphanumeric = false;
-                })
-                .AddEntityFrameworkStores<DataContext>()
+            {
+                opt.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<DataContext>()
                 .AddSignInManager<SignInManager<AppUser>>();
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
