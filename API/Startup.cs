@@ -46,14 +46,26 @@ namespace API
             app.UseXfo(opt => opt.Deny());
             app.UseCsp(opt => opt
                 .BlockAllMixedContent()
-                .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com"))
-                .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
+                .StyleSources(s => s.Self().CustomSources(
+                    "https://fonts.googleapis.com",
+                    "sha",
+                    "sha"
+                ))
+                .FontSources(s => s.Self().CustomSources(
+                    "https://fonts.gstatic.com", "data:"
+                ))
                 .FormActions(s => s.Self())
                 .FrameAncestors(s => s.Self())
-                .ImageSources(s => s.Self().CustomSources("https://res.cloudinary.com"))
-                .ScriptSources(s => s.Self().CustomSources(""))
-
-            // TODO: Change the sha in ScriptSources -> sha256-HIgflxNtM43xg36bBIUoPTUuo+CXZ319LsTVRtsZ/VU=
+                .ImageSources(s => s.Self().CustomSources(
+                    "https://res.cloudinary.com",
+                    "https://www.facebook.com",
+                    "https://platform-lookaside.fbsbx.com"
+                ))
+                .ScriptSources(s => s.Self().CustomSources(
+                    "sha",
+                    "https://connect.facebook.net",
+                    "sha"
+                ))
             );
 
             if (env.IsDevelopment())
