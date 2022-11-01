@@ -49,6 +49,7 @@ namespace API
                 .StyleSources(s => s.Self().CustomSources(
                     "https://fonts.googleapis.com",
                     "sha",
+                    "sha",
                     "sha"
                 ))
                 .FontSources(s => s.Self().CustomSources(
