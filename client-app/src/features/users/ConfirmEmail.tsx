@@ -69,6 +69,7 @@ const ConfirmEmail = () => {
                             primary
                             onClick={() => modalStore.openModal(<LoginForm />)}
                             size="huge"
+                            content="Login"
                         />
                     </div>
                 );
