@@ -55,7 +55,7 @@ const ConfirmEmail = () => {
                         <Button
                             primary
                             onClick={handleConfirmEmailResend}
-                            size="huge"
+                            size="big"
                             content="Resend email"
                         />
                     </div>
@@ -68,7 +68,7 @@ const ConfirmEmail = () => {
                         <Button
                             primary
                             onClick={() => modalStore.openModal(<LoginForm />)}
-                            size="huge"
+                            size="medium"
                             content="Login"
                         />
                     </div>
