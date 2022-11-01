@@ -74,7 +74,7 @@ axios.interceptors.response.use(
             case 401:
                 if (
                     status === 401 &&
-                    headers["www-authenticate"].startsWith(
+                    headers["www-authenticate"]?.startsWith(
                         'Bearer error="invalid_token"'
                     )
                 ) {
@@ -134,6 +134,13 @@ const Account = {
     fbLogin: (accessToken: string) =>
         requests.post<User>(`/account/fbLogin?accessToken=${accessToken}`, {}),
     refreshToken: () => requests.post<User>("/account/refreshToken", {}),
+    verifyEmail: (token: string, email: string) =>
+        requests.post<void>(
+            `/account/verifyEmail?token=${token}&email=${email}`,
+            {}
+        ),
+    resendEmailConfirm: (email: string) =>
+        requests.get(`/account/resendEmailConfirmationLink?email=${email}`),
 };
 
 const Profiles = {
