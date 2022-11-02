@@ -59,7 +59,7 @@ const ActivityListItem = ({ activity }: Props) => {
             <Segment>
                 <span>
                     <Icon name="clock" />
-                    {new Date(format(activity.date!, "dd MMM yyyy h:mm aa"))}
+                    {format(activity.date!, "dd MMM yyyy h:mm aa")}
                     <Icon name="marker" /> {activity.venue}
                 </span>
             </Segment>

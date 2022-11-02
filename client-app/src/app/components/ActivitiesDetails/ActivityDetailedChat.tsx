@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Segment, Header, Comment, Loader } from "semantic-ui-react";
 import { useStore } from "../../stores/store";
 import * as Yup from "yup";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistance } from "date-fns";
 
 interface Props {
     activityId: string;
@@ -91,7 +91,10 @@ const ActivityDetailedChat = ({ activityId }: Props) => {
                                 </Comment.Author>
                                 <Comment.Metadata>
                                     <div>
-                                        {new Date(formatDistanceToNow(comment.createdAt))}{" "}
+                                        {formatDistance(
+                                            new Date(comment.createdAt),
+                                            new Date()
+                                        )}{" "}
                                         ago
                                     </div>
                                 </Comment.Metadata>

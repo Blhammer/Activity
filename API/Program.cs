@@ -33,7 +33,7 @@ app.UseCspReportOnly(opt => opt
     .StyleSources(s => s.Self().CustomSources(
         "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk=",
         "https://fonts.googleapis.com",
-        "self"
+        "sha256-VdJLYZrBOhBJj2L4/+iZupDWpR1sppzSbgJzXdO/Oss="
     ))
     .FontSources(s => s.Self().CustomSources(
         "https://fonts.gstatic.com", "data:", "blob:"
