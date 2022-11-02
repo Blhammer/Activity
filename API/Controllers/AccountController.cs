@@ -51,7 +51,9 @@ namespace API.Controllers
 
             if (user == null) return Unauthorized("Invalid email");
 
-            // Test purpose:
+            // Test purpose only:
+            // In this case the user with email "bob@test.com" is confirmed!
+            // He can log in immediatelly! 
             if (user.UserName == "bob") user.EmailConfirmed = true;
 
             if (!user.EmailConfirmed) return Unauthorized("Email not confirmed");

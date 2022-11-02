@@ -22,16 +22,17 @@ namespace API.Extensions
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
             });
 
-            // use SQL server: 1) install SqlServer and 2) add UseSqlServer
-            // use Postgre SQL server: 1) install PostgreSQL server and 2) add use UseNpgsql
+            // How to use different databases:
+            // SQL server: 1) install SqlServer and 2) add UseSqlServer
+            // Postgre SQL server: 1) install PostgreSQL server and 2) add UseNpgsql
 
+            // Development mode:
             //services.AddDbContext<DataContext>(options =>
             //{
             //    options.UseNpgsql(config.GetConnectionString("DefaultConnection"));
             //});
 
-            // Updated connection method to the database:
-
+            // Production mode:
             services.AddDbContext<DataContext>(options =>
             {
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

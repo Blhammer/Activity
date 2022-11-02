@@ -1,4 +1,5 @@
 using Application.Activities;
+using Persistence.DataSeed;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,12 +53,7 @@ app.UseCspReportOnly(opt => opt
     ))
 );
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     // Create a middleware to add the header manually onto this
     app.Use(async (context, next) =>
@@ -66,8 +62,6 @@ else
         await next.Invoke();
     });
 }
-
-//app.UseHttpsRedirection();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
