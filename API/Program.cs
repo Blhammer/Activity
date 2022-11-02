@@ -31,8 +31,9 @@ app.UseXfo(opt => opt.Deny());
 app.UseCspReportOnly(opt => opt
     .BlockAllMixedContent()
     .StyleSources(s => s.Self().CustomSources(
+        "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk=",
         "https://fonts.googleapis.com",
-        "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk="
+        "self"
     ))
     .FontSources(s => s.Self().CustomSources(
         "https://fonts.gstatic.com", "data:", "blob:"

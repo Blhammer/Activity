@@ -91,7 +91,7 @@ const ActivityDetailedChat = ({ activityId }: Props) => {
                                 </Comment.Author>
                                 <Comment.Metadata>
                                     <div>
-                                        {formatDistanceToNow(comment.createdAt)}{" "}
+                                        {new Date(formatDistanceToNow(comment.createdAt))}{" "}
                                         ago
                                     </div>
                                 </Comment.Metadata>
