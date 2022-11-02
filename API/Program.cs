@@ -31,8 +31,8 @@ app.UseXfo(opt => opt.Deny());
 app.UseCspReportOnly(opt => opt
     .BlockAllMixedContent()
     .StyleSources(s => s.Self().CustomSources(
-        "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk=",
         "https://fonts.googleapis.com",
+        "sha256-DpOoqibK/BsYhobWHnU38Pyzt5SjDZuR/mFsAiVN7kk=",
         "sha256-VdJLYZrBOhBJj2L4/+iZupDWpR1sppzSbgJzXdO/Oss="
     ))
     .FontSources(s => s.Self().CustomSources(
@@ -49,8 +49,8 @@ app.UseCspReportOnly(opt => opt
         "img-src"
     ))
     .ScriptSources(s => s.Self().CustomSources(
-        "https://connect.facebook.net",
-        "sha256-bYpo2sNZ+qgSGj3NT3Cp3RfoTzduLPlS0hqHsXLP79U="
+        "sha256-bYpo2sNZ+qgSGj3NT3Cp3RfoTzduLPlS0hqHsXLP79U=",
+        "https://connect.facebook.net"
     ))
 );
 
