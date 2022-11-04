@@ -18,3 +18,27 @@ Used technologies:
 -   SendGrid
 -   SignalR
 -   Jest
+
+
+Project Structure
+
+This is the structure of my project:
+
+   - client application
+      - public
+      - src
+          -  components
+          -  contexts
+          -  hooks
+          -  pages
+          -  Redux
+          -  services
+          -  App.js
+          -  index.js
+
+  - backend separated:
+      - API
+      - Application
+      - Domain
+      - Infrastructure
+      - Persistence
