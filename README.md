@@ -4,7 +4,7 @@ Activity is an application written on ASP.NET Core and React. Here i have built 
 
 Fullstack application
 
-Used technologies:
+## Used technologies:
 
 -   HTML
 -   CSS
@@ -20,7 +20,7 @@ Used technologies:
 -   Jest
 
 
-Project Structure
+## Project Structure
 
 This is the structure of my project:
 
@@ -42,3 +42,28 @@ This is the structure of my project:
       - Domain
       - Infrastructure
       - Persistence
+
+## How to start the project
+
+> **Note**
+Before run the project, you have to configure .env files in API root folder:
+
+You have to add:
+- in backend folder:
+    - Your database connection string
+    - Cloudinary Username and Password
+    - 
+
+3. Open:
+
+    - client-app folder and install node modules with the command: npm install
+    - open API folder and run the command: dotnet watch run
+
+    When node modules are downloaded start the project:
+
+    - client-app : npm start
+    - API : npm start
+
+    The application will be running in:
+      - development - `http://localhost:3000`
+      - production - `http://localhost:5000`
