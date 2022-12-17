@@ -4,7 +4,6 @@
 
 Activity is an application written on ASP.NET Core and React. Here i have built a multi-project ASP.NET Core solution that is built using Clean Architecture and the CQRS and Mediator pattern.
 
-<<<<<<< HEAD
 Fullstack application with ASP.NET Core API and React with Typescript
 =======
 Fullstack application
@@ -23,7 +22,6 @@ Fullstack application
 -   SendGrid
 -   SignalR
 -   Jest
-
 
 ## Project Structure
 
@@ -72,4 +70,3 @@ You have to add:
     The application will be running in:
       - development - `http://localhost:3000`
       - production - `http://localhost:5000`
->>>>>>> 79df855f79b53428addf3924e337bed556d9814e
