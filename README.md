@@ -6,7 +6,7 @@ Activity is an application written on ASP.NET Core and React. Here i have built 
 
 Fullstack application with ASP.NET Core API and React with Typescript
 =======
-Fullstack application
+Fullstack application with only one role - User
 
 ## Used technologies:
 
